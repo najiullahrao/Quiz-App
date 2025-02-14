@@ -53,6 +53,7 @@ const nextButton = document.getElementById("next-btn");
 
 let currentQuestionIndex = 0;
 let score = 0;
+var audio = new Audio('error.mp3');
 
 function startQuiz() {
     currentQuestionIndex = 0;
@@ -95,6 +96,7 @@ function selectAnswer(e) {
         score++;
     } else {
         selectedBtn.classList.add("incorrect");
+        audio.play();
     }
     Array.from(answerButton.children).forEach(button => {
         if (button.dataset.correct === "true") {
